@@ -2,9 +2,8 @@
 //defined custom class
 class Fruit
 {
-    //property 
-    public $name;
-    public $color;
+    protected $name;
+    protected $color;
 
     public function __construct($name, $color)
     {
@@ -12,40 +11,34 @@ class Fruit
         $this->color = $color;
     }
 
-    //get name method
-    public function get_name()
+    public function intro()
     {
-        return $this->name;
-    }
-
-    //get color method
-    public function get_color()
-    {
-        return $this->color;
-    }
-
-    //destruct
-    public function __destruct()
-    {
-        echo "The fruit is {$this->name} and the color is {$this->color}.";
-        echo "<br>";
+        echo "The fruit sd sdsds is {$this->name} and the color is {$this->color}.";
     }
 }
 
-//define the object
-$apple = new Fruit("Apple 2", "Blue");
-//banana
-$banana = new Fruit("Banana 2", "Green");
-//result
-// echo $banana->get_name();
-// echo $banana->name;
-// echo "<br />";
-// echo $apple->get_name();
-// echo $apple->name;
-// echo "<br />";
-// echo "<br />";
-// echo $banana->get_color();
-// echo $banana->color;
-// echo "<br />";
-// echo $apple->get_color();
-// echo $apple->color;
+// Strawberry is inherited from Fruit
+class Strawberry extends Fruit
+{
+    public $weight;
+
+    public function __construct($name, $color, $weight)
+    {
+        $this->name = $name;
+        $this->color = $color;
+        $this->weight = $weight;
+    }
+
+    public function intro()
+    {
+        echo "The fruit is {$this->name}, the color is {$this->color}, and the weight is {$this->weight}";
+    }
+
+    public function addition($num1, $num2)
+    {
+        echo $num1 + $num2;
+    }
+}
+$strawberry = new Strawberry("Strawberry", "red", "30kg");
+// $strawberry->addition(5, 10);
+$strawberry->intro();
