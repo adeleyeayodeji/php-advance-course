@@ -1,69 +1,163 @@
 <?php
+
+
+//define static methods
+// class Greeting
+// {
+//     // public function __construct($num1, $num2)
+//     // {
+//     //     echo self::addNumber($num1, $num2);
+//     // }
+//     protected static function welcome($msg)
+//     {
+//         echo $msg;
+//     }
+
+//     //addnumber
+//     public static function addNumber($num1, $num2)
+//     {
+//         return $num1 + $num2;
+//     }
+// }
+
+// class NewArea extends Greeting
+// {
+//     public static function addnewdata($msg)
+//     {
+//         parent::welcome($msg);
+//     }
+// }
+
+// NewArea::addnewdata("Hello World, I am from New Area");
+
+// Call static method
+// Greeting::welcome();
+// echo Greeting::addNumber(1, 2);
+
+
+//define trait
+// trait message1
+// {
+//     public function msg1()
+//     {
+//         echo "OOP is fun! ";
+//     }
+
+//     //addition
+//     public function addnumber($num1, $num2)
+//     {
+//         return $num1 + $num2;
+//     }
+
+//     //multiply function
+//     public function multiplynumber($num1, $num2)
+//     {
+//         return $num1 * $num2;
+//     }
+// }
+
+// //trait 2
+// trait message2
+// {
+//     public function msg2()
+//     {
+//         echo "OOP reduces code duplication!";
+//     }
+// }
+
+// class Welcome
+// {
+//     use message1, message2;
+// }
+
+// //class 3
+// class TestingClass
+// {
+//     use message1;
+// }
+
+// $obj = new Welcome();
+// $obj->msg1();
+// echo $obj->addnumber(10, 20);
+// echo "<br>";
+// echo $obj->multiplynumber(10, 20);
+// echo "<br>";
+// $obj->msg2();
+
+// $obj2 = new TestingClass();
+// $obj2->msg1();
+// echo $obj2->addnumber(10, 20);
+// echo "<br>";
+// echo $obj2->multiplynumber(10, 20);
+
+
+
+
 //defined interface
 
-interface Animal
-{
-    public function makeSound();
+// interface Animal
+// {
+//     public function makeSound();
 
-    public function eat(): string;
-}
+//     public function eat(): string;
+// }
 
-//define child class
-class Cat implements Animal
-{
-    public function makeSound()
-    {
-        echo "Meow";
-    }
+// //define child class
+// class Cat implements Animal
+// {
+//     public function makeSound()
+//     {
+//         echo "Meow";
+//     }
 
-    public function eat(): string
-    {
-        return "Cat is eating";
-    }
-}
+//     public function eat(): string
+//     {
+//         return "Cat is eating";
+//     }
+// }
 
-//define child class
-class Dog implements Animal
-{
-    public function makeSound()
-    {
-        echo "Woof";
-    }
+// //define child class
+// class Dog implements Animal
+// {
+//     public function makeSound()
+//     {
+//         echo "Woof";
+//     }
 
-    public function eat(): string
-    {
-        return "Dog is eating";
-    }
-}
+//     public function eat(): string
+//     {
+//         return "Dog is eating";
+//     }
+// }
 
-//define child class
-class Mouse implements Animal
-{
-    public function makeSound()
-    {
-        echo "Squeak";
-    }
+// //define child class
+// class Mouse implements Animal
+// {
+//     public function makeSound()
+//     {
+//         echo "Squeak";
+//     }
 
-    public function eat(): string
-    {
-        return "Mouse is eating";
-    }
-}
+//     public function eat(): string
+//     {
+//         return "Mouse is eating";
+//     }
+// }
 
-//make an instance of the class
-$cat = new Cat();
-$dog = new Dog();
-$mouse = new Mouse();
-//add object to an array
-$animals = array($cat, $dog, $mouse);
-//foreach loop
-foreach ($animals as $animal) {
-    echo "<br>";
-    $animal->makeSound();
-    echo "<br>";
-    echo $animal->eat();
-    echo "<br>";
-}
+// //make an instance of the class
+// $cat = new Cat();
+// $dog = new Dog();
+// $mouse = new Mouse();
+// //add object to an array
+// $animals = array($cat, $dog, $mouse);
+// //foreach loop
+// foreach ($animals as $animal) {
+//     echo "<br>";
+//     $animal->makeSound();
+//     echo "<br>";
+//     echo $animal->eat();
+//     echo "<br>";
+// }
 
 
 
