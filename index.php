@@ -1,5 +1,6 @@
 <?php
 //defined interface
+
 interface Animal
 {
     public function makeSound();
