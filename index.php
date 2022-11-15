@@ -1,44 +1,77 @@
 <?php
+require 'classes/table.php';
+require 'classes/table2.php';
+
+use Html\Code\NewArea\Data\Table as HtmlTable;
+use Other\Code\NewArea\Data\Table as OtherTable;
+
+$table = new OtherTable();
+$table->title2 = "Well";
+$table->numRows2 = 5;
+
+//$table2
+$table2 = new HtmlTable();
+$table2->title = "Hello";
+$table2->numRows = 10;
+?>
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <?php
+    $table->message();
+    echo "<br>";
+    $table2->message();
+    ?>
+
+</body>
+
+</html>
+
+<?php
+
 //define static property
-class pi
-{
-    public static $value = 3.14159;
+// class pi
+// {
+// public static $value = 3.14159;
 
-    public function staticValue()
-    {
-        return self::$value;
-    }
-}
+// public function staticValue()
+// {
+// return self::$value;
+// }
+// }
 
-// Get static property
-$pi = new pi();
-echo $pi->staticValue();
+// // Get static property
+// $pi = new pi();
+// echo $pi->staticValue();
 
 //define static methods
 // class Greeting
 // {
-//     // public function __construct($num1, $num2)
-//     // {
-//     //     echo self::addNumber($num1, $num2);
-//     // }
-//     protected static function welcome($msg)
-//     {
-//         echo $msg;
-//     }
+// // public function __construct($num1, $num2)
+// // {
+// // echo self::addNumber($num1, $num2);
+// // }
+// protected static function welcome($msg)
+// {
+// echo $msg;
+// }
 
-//     //addnumber
-//     public static function addNumber($num1, $num2)
-//     {
-//         return $num1 + $num2;
-//     }
+// //addnumber
+// public static function addNumber($num1, $num2)
+// {
+// return $num1 + $num2;
+// }
 // }
 
 // class NewArea extends Greeting
 // {
-//     public static function addnewdata($msg)
-//     {
-//         parent::welcome($msg);
-//     }
+// public static function addnewdata($msg)
+// {
+// parent::welcome($msg);
+// }
 // }
 
 // NewArea::addnewdata("Hello World, I am from New Area");
@@ -51,42 +84,42 @@ echo $pi->staticValue();
 //define trait
 // trait message1
 // {
-//     public function msg1()
-//     {
-//         echo "OOP is fun! ";
-//     }
+// public function msg1()
+// {
+// echo "OOP is fun! ";
+// }
 
-//     //addition
-//     public function addnumber($num1, $num2)
-//     {
-//         return $num1 + $num2;
-//     }
+// //addition
+// public function addnumber($num1, $num2)
+// {
+// return $num1 + $num2;
+// }
 
-//     //multiply function
-//     public function multiplynumber($num1, $num2)
-//     {
-//         return $num1 * $num2;
-//     }
+// //multiply function
+// public function multiplynumber($num1, $num2)
+// {
+// return $num1 * $num2;
+// }
 // }
 
 // //trait 2
 // trait message2
 // {
-//     public function msg2()
-//     {
-//         echo "OOP reduces code duplication!";
-//     }
+// public function msg2()
+// {
+// echo "OOP reduces code duplication!";
+// }
 // }
 
 // class Welcome
 // {
-//     use message1, message2;
+// use message1, message2;
 // }
 
 // //class 3
 // class TestingClass
 // {
-//     use message1;
+// use message1;
 // }
 
 // $obj = new Welcome();
@@ -110,51 +143,51 @@ echo $pi->staticValue();
 
 // interface Animal
 // {
-//     public function makeSound();
+// public function makeSound();
 
-//     public function eat(): string;
+// public function eat(): string;
 // }
 
 // //define child class
 // class Cat implements Animal
 // {
-//     public function makeSound()
-//     {
-//         echo "Meow";
-//     }
+// public function makeSound()
+// {
+// echo "Meow";
+// }
 
-//     public function eat(): string
-//     {
-//         return "Cat is eating";
-//     }
+// public function eat(): string
+// {
+// return "Cat is eating";
+// }
 // }
 
 // //define child class
 // class Dog implements Animal
 // {
-//     public function makeSound()
-//     {
-//         echo "Woof";
-//     }
+// public function makeSound()
+// {
+// echo "Woof";
+// }
 
-//     public function eat(): string
-//     {
-//         return "Dog is eating";
-//     }
+// public function eat(): string
+// {
+// return "Dog is eating";
+// }
 // }
 
 // //define child class
 // class Mouse implements Animal
 // {
-//     public function makeSound()
-//     {
-//         echo "Squeak";
-//     }
+// public function makeSound()
+// {
+// echo "Squeak";
+// }
 
-//     public function eat(): string
-//     {
-//         return "Mouse is eating";
-//     }
+// public function eat(): string
+// {
+// return "Mouse is eating";
+// }
 // }
 
 // //make an instance of the class
@@ -165,72 +198,72 @@ echo $pi->staticValue();
 // $animals = array($cat, $dog, $mouse);
 // //foreach loop
 // foreach ($animals as $animal) {
-//     echo "<br>";
-//     $animal->makeSound();
-//     echo "<br>";
-//     echo $animal->eat();
-//     echo "<br>";
+// echo "<br>";
+// $animal->makeSound();
+// echo "<br>";
+// echo $animal->eat();
+// echo "<br>";
 // }
 
 
 
 // abstract class Car
 // {
-//     public $name;
-//     public $number;
-//     public function __construct($name, $number)
-//     {
-//         $this->name = $name;
-//         $this->number = $number;
-//     }
+// public $name;
+// public $number;
+// public function __construct($name, $number)
+// {
+// $this->name = $name;
+// $this->number = $number;
+// }
 
-//     //intro
-//     abstract public function intro(): string;
+// //intro
+// abstract public function intro(): string;
 
-//     //int data type
-//     abstract public function int(): int;
+// //int data type
+// abstract public function int(): int;
 // }
 
 // //child classes
 // class Audi extends Car
 // {
-//     public function intro(): string
-//     {
-//         return "Choose German quality! I'm an $this->name!";
-//     }
+// public function intro(): string
+// {
+// return "Choose German quality! I'm an $this->name!";
+// }
 
-//     public function int(): int
-//     {
-//         return $this->number;
-//     }
+// public function int(): int
+// {
+// return $this->number;
+// }
 // }
 
 // //another child class
 // class Volvo extends Car
 // {
-//     public function intro(): string
-//     {
-//         return "Proud to be Swedish! I'm a $this->name!";
-//     }
+// public function intro(): string
+// {
+// return "Proud to be Swedish! I'm a $this->name!";
+// }
 
-//     public function int(): int
-//     {
-//         return $this->number;
-//     }
+// public function int(): int
+// {
+// return $this->number;
+// }
 // }
 
 // //another class
 // class Citroen extends Car
 // {
-//     public function intro(): string
-//     {
-//         return "French extravagance! I'm a $this->name!";
-//     }
+// public function intro(): string
+// {
+// return "French extravagance! I'm a $this->name!";
+// }
 
-//     public function int(): int
-//     {
-//         return $this->number;
-//     }
+// public function int(): int
+// {
+// return $this->number;
+// }
 // }
 
 // //create objects from the child classes
@@ -256,49 +289,49 @@ echo $pi->staticValue();
 
 // class Fruit
 // {
-//     protected $name;
-//     protected $color;
-//     const LEAVING_MESSAGE = "Thank you for visiting our fruit stand!";
+// protected $name;
+// protected $color;
+// const LEAVING_MESSAGE = "Thank you for visiting our fruit stand!";
 
-//     public function __construct($name, $color)
-//     {
-//         $this->name = $name;
-//         $this->color = $color;
-//     }
+// public function __construct($name, $color)
+// {
+// $this->name = $name;
+// $this->color = $color;
+// }
 
-//     public function intro()
-//     {
-//         echo "The fruit sd sdsds is {$this->name} and the color is {$this->color}.";
-//     }
+// public function intro()
+// {
+// echo "The fruit sd sdsds is {$this->name} and the color is {$this->color}.";
+// }
 // }
 
 // // Strawberry is inherited from Fruit
 // class Strawberry extends Fruit
 // {
-//     public $weight;
+// public $weight;
 
-//     public function __construct($name, $color, $weight)
-//     {
-//         $this->name = $name;
-//         $this->color = $color;
-//         $this->weight = $weight;
-//     }
+// public function __construct($name, $color, $weight)
+// {
+// $this->name = $name;
+// $this->color = $color;
+// $this->weight = $weight;
+// }
 
-//     public function intro()
-//     {
-//         echo "The fruit is {$this->name}, the color is {$this->color}, and the weight is {$this->weight}";
-//     }
+// public function intro()
+// {
+// echo "The fruit is {$this->name}, the color is {$this->color}, and the weight is {$this->weight}";
+// }
 
-//     public function addition($num1, $num2)
-//     {
-//         echo $num1 + $num2;
-//     }
+// public function addition($num1, $num2)
+// {
+// echo $num1 + $num2;
+// }
 
-//     //byebye
-//     public function byebye()
-//     {
-//         echo self::LEAVING_MESSAGE;
-//     }
+// //byebye
+// public function byebye()
+// {
+// echo self::LEAVING_MESSAGE;
+// }
 // }
 // $strawberry = new Strawberry("Strawberry", "red", "30kg");
 // // $strawberry->addition(5, 10);
