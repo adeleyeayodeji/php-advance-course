@@ -8,4 +8,10 @@ class HomeController
     {
         echo " sdmsdklsmdlkms";
     }
+
+    //about
+    public static function about()
+    {
+        echo "about";
+    }
 }
