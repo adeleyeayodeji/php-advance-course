@@ -29,4 +29,10 @@ class HomeController
         echo "blog";
         // var_dump($args);
     }
+
+    //area
+    public static function area(Request $request, $args)
+    {
+        echo "<h1>Area External</h1>";
+    }
 }

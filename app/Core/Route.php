@@ -53,27 +53,40 @@ class Route
             }
             //check if uri matches preg pattern
             if (preg_match($uri2, Request::uri(), $matches)) {
-                //check if controller exist
-                if (class_exists($controlargs[0])) {
-                    //check if method exist
-                    if (method_exists($controlargs[0], $controlargs[1])) {
-                        //remove first match
-                        array_shift($matches);
-                        $matches = array_combine(array_keys($matches_data), $matches);
-                        //call method
-                        $controller = new $controlargs[0];
-                        $controller->{$controlargs[1]}(
-                            new Request,
-                            $matches
-                        );
-                        return true;
+                //check if $controlargs is callable
+                if (is_callable($controlargs)) {
+                    //remove first match
+                    array_shift($matches);
+                    $matches = array_combine(array_keys($matches_data), $matches);
+                    //call method
+                    $controlargs(
+                        new Request,
+                        $matches
+                    );
+                    return true;
+                } else {
+                    //check if controller exist
+                    if (class_exists($controlargs[0])) {
+                        //check if method exist
+                        if (method_exists($controlargs[0], $controlargs[1])) {
+                            //remove first match
+                            array_shift($matches);
+                            $matches = array_combine(array_keys($matches_data), $matches);
+                            //call method
+                            $controller = new $controlargs[0];
+                            $controller->{$controlargs[1]}(
+                                new Request,
+                                $matches
+                            );
+                            return true;
+                        } else {
+                            self::methodNotFound($controlargs[1]);
+                            return false;
+                        }
                     } else {
-                        self::methodNotFound($controlargs[1]);
+                        self::classNotFound($controlargs[0]);
                         return false;
                     }
-                } else {
-                    self::classNotFound($controlargs[0]);
-                    return false;
                 }
             } else {
                 return false;
@@ -81,23 +94,32 @@ class Route
         } else {
             //check if uri matches preg pattern
             if ($uri == Request::uri()) {
-                //check if controller exist
-                if (class_exists($controlargs[0])) {
-                    //check if method exist
-                    if (method_exists($controlargs[0], $controlargs[1])) {
-                        //call method
-                        $controller = new $controlargs[0];
-                        $controller->{$controlargs[1]}(
-                            new Request
-                        );
-                        return true;
+                //check if $controlargs is callable
+                if (is_callable($controlargs)) {
+                    //call method
+                    $controlargs(
+                        new Request
+                    );
+                    return true;
+                } else {
+                    //check if controller exist
+                    if (class_exists($controlargs[0])) {
+                        //check if method exist
+                        if (method_exists($controlargs[0], $controlargs[1])) {
+                            //call method
+                            $controller = new $controlargs[0];
+                            $controller->{$controlargs[1]}(
+                                new Request
+                            );
+                            return true;
+                        } else {
+                            self::methodNotFound($controlargs[1]);
+                            return false;
+                        }
                     } else {
-                        self::methodNotFound($controlargs[1]);
+                        self::classNotFound($controlargs[0]);
                         return false;
                     }
-                } else {
-                    self::classNotFound($controlargs[0]);
-                    return false;
                 }
             } else {
                 return false;
