@@ -8,7 +8,14 @@ class HomeController
 {
     public static function index(Request $request)
     {
-        echo "<h1>Homepage</h1>";
+        $name = "John Doe";
+        $age = 30;
+        $array = [
+            "Adeleye Ayodeji",
+            "Deborah",
+            "Tunde"
+        ];
+        return view('home/index', compact('name', 'age', 'array'));
     }
 
     //about
